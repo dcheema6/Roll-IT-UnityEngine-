@@ -13,7 +13,6 @@ public class SkyPathController : MonoBehaviour
 
     void Start ()
     {
-        forward = true;
         ind = 0;
         positions[ind] = transform.localPosition;
     }
@@ -31,14 +30,8 @@ public class SkyPathController : MonoBehaviour
             Vector3 diff = positions[nxtInd] - positions[ind];;
 
             if (diff.magnitude < speed) transform.localPosition = positions[nxtInd];
-            else
-            {
-                transform.position += diff.normalized * speed;
-            }
+            else transform.position += diff.normalized * speed;
         }
-        else
-        {
-            ind = nxtInd;
-        }
+        else ind = nxtInd;
     }
 }
